@@ -1,0 +1,18 @@
+- name: Push validated agg files to git
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    connection_settings:
+      host: "{{ansible_host}}"
+
+  tasks:
+    - name: git add
+      shell: git add .
+
+    - name: git commit
+      shell: git commit -m "Ansible pushing validated prefixes"
+
+    - name: git push
+      shell: git push
